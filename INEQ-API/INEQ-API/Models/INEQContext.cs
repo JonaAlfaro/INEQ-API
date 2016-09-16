@@ -10,7 +10,7 @@ namespace INEQ_API.Models
    
         public class INEQContext : DbContext
     {
-        public INEQContext() : base("INEQContext")
+        public INEQContext() : base("INEQAPI")
         {
         }
         public DbSet<Brand> Brands { get; set; }

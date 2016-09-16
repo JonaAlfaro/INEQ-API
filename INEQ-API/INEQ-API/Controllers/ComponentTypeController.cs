@@ -31,15 +31,23 @@ namespace INEQ_API.Controllers
                 Id = Convert.ToInt16(id),
               Description = description
             };
-            db.Components.Attach(c);
+            db.ComponentTypes.Attach(c);
             db.Entry(c).State = System.Data.Entity.EntityState.Modified;
             db.Configuration.ValidateOnSaveEnabled = true;
             return db.SaveChanges() > 0;
         }
 
         // PUT: api/ComponentType/5
-        public void Put(int id, [FromBody]string value)
+        public bool Put(int id, string description, bool activo)
         {
+            var c = new ComponentType()
+            {
+                Id=id,
+                Description = description,
+                Active = activo
+            };
+            db.ComponentTypes.Add(c);
+            return db.SaveChanges() > 0;
         }
 
         // DELETE: api/ComponentType/5

@@ -12,10 +12,11 @@ namespace INEQ_API.Models
         public string Description { get; set; }
         public bool Active { get; set; }
         public int ComponentTypeId { get; set; }
-        public int Equipment_Id { get; set; }
-        public int EquipmentType_Id { get; set; }
+        public int EquipmentId { get; set; }
+        public int EquipmentTypeId { get; set; }
 
         public virtual Equipament Equipment { get; set; }
         public virtual EquipamentType EquipmentType { get; set; }
+        public  virtual ComponentType ComponentType { get; set; }
     }
 }

@@ -41,7 +41,7 @@ namespace INEQ_API.Controllers
         {
             var c = new Component()
             {  
-                Id = id
+                Id = id,
                 Description = component,
                 ComponentTypeId = Convert.ToInt16(CompontentType),
                 Active = Convert.ToBoolean(active)

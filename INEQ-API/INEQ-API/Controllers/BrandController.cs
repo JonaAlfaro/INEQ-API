@@ -1,4 +1,5 @@
-﻿using System;
+﻿using INEQ_API.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,10 +10,11 @@ namespace INEQ_API.Controllers
 {
     public class BrandController : ApiController
     {
+        private INEQContext db = new INEQContext();
         // GET: api/Brand
-        public IEnumerable<string> Get()
+        public List<Brand> Get()
         {
-            return new string[] { "value1", "value2" };
+            return db.Brands.ToList();
         }
 
         // GET: api/Brand/5
