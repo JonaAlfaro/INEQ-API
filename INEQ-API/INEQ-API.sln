@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INEQ-API", "INEQ-API\INEQ-API.csproj", "{6BCA49E0-99F1-44FB-A74D-84B3C28463B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INEQ-MVC", "INEQ-MVC\INEQ-MVC.csproj", "{13F59FE7-7D06-4A6F-B753-39078E9AC9C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6BCA49E0-99F1-44FB-A74D-84B3C28463B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BCA49E0-99F1-44FB-A74D-84B3C28463B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BCA49E0-99F1-44FB-A74D-84B3C28463B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13F59FE7-7D06-4A6F-B753-39078E9AC9C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13F59FE7-7D06-4A6F-B753-39078E9AC9C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13F59FE7-7D06-4A6F-B753-39078E9AC9C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13F59FE7-7D06-4A6F-B753-39078E9AC9C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
