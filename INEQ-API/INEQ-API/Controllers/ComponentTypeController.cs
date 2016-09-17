@@ -18,10 +18,10 @@ namespace INEQ_API.Controllers
         }
 
         // GET: api/ComponentType/5
-        public List<ComponentType> Get(int id)
+        public List<ComponentType> Get(int id,string desctiption)
         {
             
-            return db.ComponentTypes.Where(e => e.Id == id).ToList();
+            return db.ComponentTypes.Where(e => e.Id == id&&e.Description==desctiption).ToList();
         }
 
         // POST: api/ComponentType
