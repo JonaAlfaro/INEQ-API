@@ -38,6 +38,7 @@ namespace INEQ_API.Controllers
                 StatusId = Convert.ToInt16(status),
                 EntryDate = Convert.ToDateTime(fecha),
                 Active = Convert.ToBoolean(activo)
+                
             };
             db.Equipments.Attach(e);
             db.Entry(e).State = System.Data.Entity.EntityState.Modified;
