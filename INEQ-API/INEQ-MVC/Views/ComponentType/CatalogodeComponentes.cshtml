@@ -1,0 +1,63 @@
+﻿@model IEnumerable<INEQ_API.Models.ComponentType>
+
+@{
+    ViewBag.Title = "CatalogodeComponentes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CatalogodeComponentes</h2>
+
+<p>
+    <input type="text" id="textComponente"  />
+</p>
+
+<div>
+    <table id="tblList" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Componente</th>
+                <th>Tipocomponente</th>
+                <th>activo</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+@section scripts{
+    <script>
+        function encontrar(component) {
+            var url = '/api/ComponentType/'+component;
+            $.getJSON(url)
+                .done(function (data) {
+                    $('#textComponente').val(data.Componente);
+                   
+                })
+                .fail(function (erro) {
+                    ClearForm();
+                });
+        };
+    </script>
+    <script>
+        $(document).on("ready", function () {
+            GetAll();
+        })
+ 
+        //Get all persons
+        function GetAll() {
+            var item = "";
+            $('#tblList tbody').html('');
+            $.getJSON('/api/ComponentType', function (data) {
+                $.each(data, function (key, value) {
+                    $('<li>', { text: formatItem(item) }).appendTo($('#tblList'));
+                    
+                    
+                });
+                $('#tblList tbody').append(item);
+            });
+        };
+    </script>
+    }
+
+ 
+
+

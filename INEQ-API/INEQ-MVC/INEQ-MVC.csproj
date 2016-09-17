@@ -142,6 +142,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\INEQ-API\Models\Brand.cs">
+      <Link>Models\Brand.cs</Link>
+    </Compile>
+    <Compile Include="..\INEQ-API\Models\Component.cs">
+      <Link>Models\Component.cs</Link>
+    </Compile>
+    <Compile Include="..\INEQ-API\Models\ComponentType.cs">
+      <Link>Models\ComponentType.cs</Link>
+    </Compile>
+    <Compile Include="..\INEQ-API\Models\Equipament.cs">
+      <Link>Models\Equipament.cs</Link>
+    </Compile>
+    <Compile Include="..\INEQ-API\Models\EquipamentType.cs">
+      <Link>Models\EquipamentType.cs</Link>
+    </Compile>
+    <Compile Include="..\INEQ-API\Models\Model.cs">
+      <Link>Models\Model.cs</Link>
+    </Compile>
+    <Compile Include="..\INEQ-API\Models\Status.cs">
+      <Link>Models\Status.cs</Link>
+    </Compile>
+    <Compile Include="..\INEQ-API\Models\User.cs">
+      <Link>Models\User.cs</Link>
+    </Compile>
+    <Compile Include="..\INEQ-API\Models\Warehouse.cs">
+      <Link>Models\Warehouse.cs</Link>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -191,10 +218,10 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\ComponentType\CatalogodeComponentes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
