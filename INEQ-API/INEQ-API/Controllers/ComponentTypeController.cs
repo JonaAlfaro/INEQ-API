@@ -20,16 +20,18 @@ namespace INEQ_API.Controllers
         // GET: api/ComponentType/5
         public List<ComponentType> Get(int id)
         {
+            
             return db.ComponentTypes.Where(e => e.Id == id).ToList();
         }
 
         // POST: api/ComponentType
-        public bool Post(string description, string id)
+        public bool Post(string id , string descripcio, string activo)
         {
             var c = new ComponentType()
             {
                 Id = Convert.ToInt16(id),
-              Description = description
+              Description = descripcio,
+              Active = Convert.ToBoolean(activo)
             };
             db.ComponentTypes.Attach(c);
             db.Entry(c).State = System.Data.Entity.EntityState.Modified;

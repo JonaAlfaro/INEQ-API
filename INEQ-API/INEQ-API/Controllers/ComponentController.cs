@@ -17,18 +17,23 @@ namespace INEQ_API.Controllers
             return db.Components.ToList();
         }
         // GET: api/Component/5
-        public List<Component> Get(string Descripcion)
+        public List<Component> Get(int id)
         {
-            return db.Components.Where(e => e.Description == Descripcion).ToList();
+            return db.Components.Where(e => e.Id == id).ToList();
         }
 
         // POST: api/Component
-        public bool Post(string Descripcion, string compontentType)
+        public bool Post(int id, string descripcion, string tipocomponente ,string equipoid,string activo,string equipotipoid)
         {
             var c = new Component()
             {
-                ComponentTypeId = Convert.ToInt16(compontentType),
-                Description = Descripcion
+                Id=id,
+                ComponentTypeId = Convert.ToInt16(tipocomponente),
+                Description = descripcion,
+                EquipmentId = Convert.ToInt16(equipoid),
+                Active = Convert.ToBoolean(activo),
+                EquipmentTypeId = Convert.ToInt16(equipotipoid)
+
             };
             db.Components.Attach(c);
             db.Entry(c).State = System.Data.Entity.EntityState.Modified;
@@ -37,15 +42,16 @@ namespace INEQ_API.Controllers
         }
 
         // PUT: api/Component/5
-        public bool Put(int id,string component, string CompontentType, string active)
+        public bool Put(int id, string descripcion, string tipocomponente, string equipoid, string equipotipoid, string activo)
         {
             var c = new Component()
-            {  
+            {
                 Id = id,
-                Description = component,
-                ComponentTypeId = Convert.ToInt16(CompontentType),
-                Active = Convert.ToBoolean(active)
-
+                ComponentTypeId = Convert.ToInt16(tipocomponente),
+                Description = descripcion,
+                EquipmentId = Convert.ToInt16(equipoid),
+                Active = Convert.ToBoolean(activo),
+                EquipmentTypeId = Convert.ToInt16(equipotipoid)    
             };
             db.Components.Add(c);
             return db.SaveChanges() > 0;

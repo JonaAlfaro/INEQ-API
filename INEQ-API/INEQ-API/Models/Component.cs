@@ -17,6 +17,6 @@ namespace INEQ_API.Models
 
         public virtual Equipament Equipment { get; set; }
         public virtual EquipamentType EquipmentType { get; set; }
-        public  virtual ComponentType ComponentType { get; set; }
+        public virtual ComponentType ComponentType { get; set; }
     }
 }
