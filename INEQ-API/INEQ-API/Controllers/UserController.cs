@@ -36,8 +36,8 @@ namespace INEQ_API.Controllers
                 Active = Convert.ToBoolean(Activo)
             };
             db.Users.Attach(c);
-            db.Entry(c).State = System.Data.Entity.EntityState.Modified;
             db.Configuration.ValidateOnSaveEnabled = true;
+            db.Entry(c).State = System.Data.Entity.EntityState.Modified;           
             return db.SaveChanges() > 0;
         }
 

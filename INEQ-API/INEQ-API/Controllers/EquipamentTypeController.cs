@@ -1,4 +1,5 @@
-﻿using System;
+﻿using INEQ_API.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,31 +10,58 @@ namespace INEQ_API.Controllers
 {
     public class EquipamentTypeController : ApiController
     {
+        private INEQContext db = new INEQContext();
         // GET: api/EquipamentType
-        public IEnumerable<string> Get()
+        public List<EquipamentType> Get()
         {
-            return new string[] { "value1", "value2" };
+            return db.EquipmentTypes.ToList();
         }
 
         // GET: api/EquipamentType/5
-        public string Get(int id)
+        public List<EquipamentType> Get(int id)
         {
-            return "value";
+            return db.EquipmentTypes.Where(e => e.Id == id).ToList();
         }
 
         // POST: api/EquipamentType
-        public void Post([FromBody]string value)
+        public bool Post(int id, string Descripcion, int Use, int Guarante, bool Activo)
         {
+            var d = new EquipamentType()
+            {
+                Id = id,
+                Description = Descripcion,
+                UsefulLife = Use,
+                GuaranteeDuration = Guarante,
+                Active = Convert.ToBoolean(Activo)
+            };
+            db.EquipmentTypes.Attach(d);
+            db.Configuration.ValidateOnSaveEnabled = true;
+            db.Entry(d).State = System.Data.Entity.EntityState.Modified;
+            return db.SaveChanges() > 0;
         }
 
         // PUT: api/EquipamentType/5
-        public void Put(int id, [FromBody]string value)
+        public bool Put(int id, string Descripcion, int Use, int Guarante, bool Activo)
         {
+            var d = new EquipamentType()
+            {
+                Id = id,
+                Description = Descripcion,
+                UsefulLife = Use,
+                GuaranteeDuration = Guarante,
+                Active = Convert.ToBoolean(Activo)
+            };
+            db.EquipmentTypes.Add(d);
+            return db.SaveChanges() > 0;
         }
 
         // DELETE: api/EquipamentType/5
-        public void Delete(int id)
+        public bool Delete(int id)
         {
+            var d = db.EquipmentTypes.Find(id);
+            db.EquipmentTypes.Attach(d);
+            db.EquipmentTypes.Remove(d);
+            return db.SaveChanges() > 0;
         }
     }
 }
