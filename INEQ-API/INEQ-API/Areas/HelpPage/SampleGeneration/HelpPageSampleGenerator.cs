@@ -11,6 +11,7 @@ using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
 using Newtonsoft.Json;
+using System.Xml.Linq;
 
 namespace INEQ_API.Areas.HelpPage
 {
