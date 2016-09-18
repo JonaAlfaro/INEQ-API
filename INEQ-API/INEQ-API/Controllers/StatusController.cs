@@ -24,7 +24,7 @@ namespace INEQ_API.Controllers
         }
 
         // POST: api/Status
-        public bool Post(int Id, string Description, int Active)
+        public bool Post(int Id, string Description, bool Active)
         {
             var e = new Status
             {
@@ -39,10 +39,11 @@ namespace INEQ_API.Controllers
         }
 
         // PUT: api/Status/5
-        public bool Put(string Description, int Active)
+        public bool Put(int id, string Description, bool Active)
         {
             var Status = new Status
             {
+                Id = id,
                 Description = Description,
                 Active = Convert.ToBoolean(Active)
             };
@@ -51,14 +52,11 @@ namespace INEQ_API.Controllers
         }
 
         // DELETE: api/Status/5
-        public bool Delete(string Description, int Active)
+        public bool Delete(int id)
         {
-            var Status = new Status
-            {
-                Description = Description,
-                Active = Convert.ToBoolean(Active)
-            };
-            db.Status.Add(Status);
+            var Status = db.Status.Find(id);
+            db.Status.Attach(Status);
+            db.Status.Remove(Status);
             return db.SaveChanges() > 0;
         }
     }
