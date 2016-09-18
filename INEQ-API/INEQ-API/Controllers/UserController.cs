@@ -17,10 +17,10 @@ namespace INEQ_API.Controllers
         }
 
         // GET: api/User/5
-        public List<User> Get(int id, string Nombre, string LastName, string UserName, string Contraseña, bool Activo)
+        public List<User> Get(int id, string Nombre, string LastName, string UserName, bool Activo)
         {
             return db.Users.Where((c) => c.Id == id && c.Name == Nombre && c.LastName == LastName && 
-            c.Username == UserName && c.Password == Contraseña && c.Active == Activo).ToList(); ;
+            c.Username == UserName && c.Active == Activo).ToList(); ;
         }
 
         // POST: api/User

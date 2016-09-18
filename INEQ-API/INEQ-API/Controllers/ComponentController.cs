@@ -58,8 +58,12 @@ namespace INEQ_API.Controllers
         }
 
         // DELETE: api/Component/5
-        public void Delete(int id)
+        public bool Delete(int id)
         {
+            var c = db.Components.Find(id);
+            db.Components.Attach(c);
+            db.Components.Remove(c);
+            return db.SaveChanges() > 0;
         }
     }
 }

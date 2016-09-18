@@ -68,8 +68,12 @@ namespace INEQ_API.Controllers
         }
 
         // DELETE: api/Equipament/5
-        public void Delete(int id)
+        public bool Delete(int id)
         {
+            var d = db.Equipments.Find(id);
+            db.Equipments.Attach(d);
+            db.Equipments.Remove(d);
+            return db.SaveChanges() > 0;
         }
     }
 }

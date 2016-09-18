@@ -18,24 +18,46 @@ namespace INEQ_API.Controllers
         }
 
         // GET: api/Brand/5
-        public string Get(int id)
+        public List<Brand> Get(int Id)
         {
-            return "value";
+            return db.Brands.Where(e => e.Id == Id).ToList();
         }
 
         // POST: api/Brand
-        public void Post([FromBody]string value)
+        public bool Post(int Id, string Description, bool Active)
         {
+            var e = new Brand()
+            {
+                Id = Id,
+                Description = Description,
+                Active = Convert.ToBoolean(Active)
+            };
+            db.Brands.Attach(e);
+            db.Entry(e).State = System.Data.Entity.EntityState.Modified;
+            db.Configuration.ValidateOnSaveEnabled = true;
+            return db.SaveChanges() > 0;
         }
 
         // PUT: api/Brand/5
-        public void Put(int id, [FromBody]string value)
+        public bool Put(int id,string Description, bool Active)
         {
+            var e = new Brand()
+            {
+                Id = id,
+                Description = Description,
+                Active = Convert.ToBoolean(Active)
+            };
+            db.Brands.Add(e);
+            return db.SaveChanges() > 0;
         }
 
         // DELETE: api/Brand/5
-        public void Delete(int id)
+        public bool Delete(int id)
         {
+            var d = db.Brands.Find(id);
+            db.Brands.Attach(d);
+            db.Brands.Remove(d);
+            return db.SaveChanges() > 0;
         }
     }
 }
