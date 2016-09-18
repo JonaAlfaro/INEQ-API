@@ -1,4 +1,4 @@
-﻿using IneqApi.Models;
+﻿using INEQ_API.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +14,13 @@ namespace INEQ_API.Controllers
         // GET: api/Status
         public List<Status> Get()
         {
-            return db.Statuses.ToList();
+            return db.Status.ToList();
         }
 
         // GET: api/Status/5
         public List<Status> Get(int Id)
         {
-            return db.Statuses.Where(e => e.Id == Id).ToList();
+            return db.Status.Where(e => e.Id == Id).ToList();
         }
 
         // POST: api/Status
@@ -32,7 +32,7 @@ namespace INEQ_API.Controllers
                 Description = Description,
                 Active = Convert.ToBoolean(Active)
             };
-            db.Statuses.Attach(e);
+            db.Status.Attach(e);
             db.Entry(e).State = System.Data.Entity.EntityState.Modified;
             db.Configuration.ValidateOnSaveEnabled = true;
             return db.SaveChanges() > 0;
@@ -46,19 +46,19 @@ namespace INEQ_API.Controllers
                 Description = Description,
                 Active = Convert.ToBoolean(Active)
             };
-            db.Statuses.Add(Status);
+            db.Status.Add(Status);
             return db.SaveChanges() > 0;
         }
 
         // DELETE: api/Status/5
-        public bool Put(string Description, int Active)
+        public bool Delete(string Description, int Active)
         {
             var Status = new Status
             {
                 Description = Description,
                 Active = Convert.ToBoolean(Active)
             };
-            db.Statuses.Add(Status);
+            db.Status.Add(Status);
             return db.SaveChanges() > 0;
         }
     }
